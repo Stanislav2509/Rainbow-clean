@@ -19,7 +19,7 @@ public class Comment extends BaseEntity{
     @Column(name = "text_content", columnDefinition = "TEXT", nullable = false)
     private String textContent;
     @ManyToOne
-    private User user;
+    private UserEntity user;
 
 
 }

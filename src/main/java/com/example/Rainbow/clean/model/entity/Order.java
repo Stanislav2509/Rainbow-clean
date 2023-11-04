@@ -35,5 +35,5 @@ public class Order extends BaseEntity {
     private Set<Option> options;
     @NotNull
     @ManyToOne
-    private User user;
+    private UserEntity user;
 }

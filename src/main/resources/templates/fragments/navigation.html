@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<header th:fragment="navigation">
+  <nav>
+    <ul>
+      <li>
+        <a th:href="@{/login}">Login</a>
+      </li>
+      <li>
+        <a th:href="@{/register}">Register</a>
+      </li>
+      <li>
+        <a th:href="@{/}">Add option</a>
+      </li>
+      <li>
+        <a th:href="@{/}">Add category</a>
+      </li>
+      <li>
+        <a th:href="@{/}">Add type</a>
+      </li>
+      <li>
+        <a th:href="@{/}">Offers</a>
+      </li>
+      <li>
+        <a th:href="@{/}">Contact with us</a>
+      </li>
+      <li>
+        <a th:href="@{/}">Order</a>
+      </li>
+    </ul>
+  </nav>
+
+</header>
+
+</body>
+</html>
