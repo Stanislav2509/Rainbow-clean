@@ -1,6 +1,5 @@
 package com.example.Rainbow.clean.model.entity;
 
-import com.example.Rainbow.clean.model.enums.TypeName;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -13,7 +12,11 @@ import lombok.Setter;
 @Entity
 @Table(name= "types")
 public class Type extends BaseEntity {
-    @Enumerated(EnumType.STRING)
     @NotNull
-    private TypeName name;
+    private String  name;
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

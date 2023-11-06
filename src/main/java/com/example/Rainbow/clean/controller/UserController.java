@@ -30,8 +30,6 @@ public class UserController {
             @ModelAttribute("userRegisterBindingModel") @Valid UserRegisterBindingModel userRegisterBindingModel,
             BindingResult bindingResult) {
 
-        System.out.println();
-
         if(bindingResult.hasErrors()){
             return new ModelAndView("register");
         }
