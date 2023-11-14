@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rainbow Montana</title>
+</head>
+<body>
+    <h1>Edit product</h1>
+    <form th:action="@{/edit-option/{id}(id=${editAllCategoryPricesDTO.getCategoryID()})}" method="post"
+          th:object="${editAllCategoryPricesDTO}">
+        <div>
+            <h3 th:text="${editAllCategoryPricesDTO.getCategoryName()}"></h3>
+        </div>
+        <div>
+            <div th:if="${editAllCategoryPricesDTO.getWashingPrice() != null}">
+                <label for="washing">Washing</label>
+                <input id="washing" th:value="${editAllCategoryPricesDTO.getWashingPrice()}" th:field="*{washingPrice}">
+            </div>
+            <div th:if="${editAllCategoryPricesDTO.getPattingPrice() != null}">
+                <label for="patting">Patting</label>
+                <input id="patting" th:value="${editAllCategoryPricesDTO.getPattingPrice()}" th:field="*{pattingPrice}" >
+            </div>
+            <div th:if="${editAllCategoryPricesDTO.getCombinedPrice() != null}">
+                <label for="combined">Combined</label>
+                <input id="combined" th:value="${editAllCategoryPricesDTO.getCombinedPrice()}" th:field="*{combinedPrice}">
+            </div>
+
+        </div>
+
+        <input type="submit" th:value="Edit">
+    </form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rainbow Montana</title>
+</head>
+<body>
+    <h1>Edit price</h1>
+    <form th:action="@{/edit-price/{id}(id=${editPriceBindingModel.getId()})}" th:method="post" th:object="${editPriceBindingModel}">
+
+         <label for="priceId" th:text="${editPriceBindingModel.getCategory()} + ' - ' + ${editPriceBindingModel.getType()}"></label>
+        <div><input id="priceId"  th:value="${editPriceBindingModel.getPrice()}" th:field="*{price}"></div>
+        <input type="submit" th:value="Edit">
+</form>
+</body>
+</html>

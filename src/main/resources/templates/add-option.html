@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainbow Montana</title>
+</head>
+<body>
+<main>
+    <h1>Insert Option</h1>
+    <div>
+        <div th:if="${hasError}" th:text="'Please insert valid values'"></div>
+        <div>
+            <form th:action="@{/add-options}" th:method="POST">
+                <div>
+                     <div>
+                         <label for="category">Category</label>
+                         <select name="category" id="category">
+                             <option value=""></option>
+                             <option th:each="category: ${categories}"
+                                     th:text="${category}" th:value="${category}"></option>
+                         </select>
+                     </div>
+                </div>
+
+                <div>
+                    <div>
+                        <label for="type">Type</label>
+                        <select name="type" id="type" >
+                            <option value=""></option>
+                            <option th:each="type: ${types}"
+                                    th:text="${type}" th:value="${#strings.toUpperCase(type)}"></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <label for="price">Price</label>
+                        <input type="text" id="price" name="price" th:value="${price}">
+                    </div>
+                </div>
+
+                <div>
+                    <input type="submit" value="Insert">
+                </div>
+            </form>
+
+            <table border="1px solid black">
+                <thead>
+                    <tr >
+                        <th th:text="'Option'"></th>
+                      <th th:each="type :${types}" th:text="${type}" ></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr th:each="category: ${info.keySet()}">
+
+                        <td th:text="${category}"></td>
+                        <td>
+                            <span th:text="${info.get(category).getWashingPrice()}"></span>
+                            <div th:if="${info.get(category).getWashingPrice() != null}">
+                                <a th:href="@{/edit-price/{id}(id=${info.get(category).getWashingOptionId()})}">Edit</a>
+                                <form th:action="@{/delete-price/{id}(id=${info.get(category).getWashingOptionId()})}" th:method="post">
+                                    <input type="submit" value="Delete">
+                                </form>
+                            </div>
+                        </td>
+                        <td >
+                            <span th:text="${info.get(category).getPattingPrice()}"></span>
+                            <div th:if="${info.get(category).getPattingPrice() != null}">
+                                <a th:href="@{/edit-price/{id}(id=${info.get(category).getPattingOptionId()})}">Edit</a>
+                                <form th:action="@{/delete-price/{id}(id=${info.get(category).getPattingOptionId()})}" th:method="post">
+                                    <input type="submit" value="Delete">
+                                </form>
+                            </div>
+                        </td>
+                        <td>
+                            <span th:text="${info.get(category).getCombinedPrice()}"></span>
+                            <div th:if="${info.get(category).getCombinedPrice() != null}">
+                                <a  th:href="@{/edit-price/{id}(id=${info.get(category).getCombinedOptionId()})}">Edit</a>
+                                <form th:action="@{/delete-price/{id}(id=${info.get(category).getCombinedOptionId()})}" th:method="post">
+                                    <input type="submit" value="Delete">
+                                </form>
+                            </div>
+                        </td>
+                        <td><a th:href="@{/edit-option/{id}(id=${info.get(category).getCategoryId()})}">Edit</a></td>
+                        <td>
+                            <form th:action="@{/delete-option/{id}(id=${info.get(category).getCategoryId()})}" th:method="post">
+                                <input type="submit" value="Delete">
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</main>
+</body>
+</html>
+

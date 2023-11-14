@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rainbow Montana</title>
+</head>
+<body>
+<main>
+    <h1>Insert Category</h1>
+    <div>
+        <div>
+            <form th:action="@{/add-category}" th:method="POST">
+                <div>
+                    <div>
+                        <label for="categoryName">Name</label>
+                    </div>
+                    <div>
+                        <input id="categoryName" name="name" th:value="${name}" type="text">
+                    </div>
+                </div>
+
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Category</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:if="${categories.isEmpty()}">
+                        <td> No Category Available </td>
+                    </tr>
+                    <tr th:each="category : ${categories}">
+                        <td th:text="${category}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div>
+                    <input type="submit" value="Insert">
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+</body>
+</html>
