@@ -1,4 +1,4 @@
-package com.example.Rainbow.clean.model.dto.binding;
+package com.example.Rainbow.clean.model.dto;
 
 import jakarta.validation.constraints.*;
 import lombok.Getter;

@@ -26,6 +26,7 @@ public class Order extends BaseEntity {
     private Timestamp executionDate;
     @Enumerated(EnumType.STRING)
     private Status status;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "orders_options",

@@ -1,6 +1,6 @@
 package com.example.Rainbow.clean.controller;
 
-import com.example.Rainbow.clean.model.dto.binding.UserRegisterBindingModel;
+import com.example.Rainbow.clean.model.dto.UserRegisterBindingModel;
 import com.example.Rainbow.clean.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;

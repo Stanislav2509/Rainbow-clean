@@ -14,13 +14,23 @@ import java.util.Set;
 @Entity
 @Table(name = "options")
 public class Option extends BaseEntity{
-    @NotNull
-    @OneToOne
-    private Category category;
-    @NotNull
-    @OneToOne
-    private Type type;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "options_categories",
+            joinColumns = {@JoinColumn(name = "option_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "category_id", referencedColumnName = "id")}
+    )
+    private Set<Category> category;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "options_types",
+            joinColumns = {@JoinColumn(name = "option_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "type_id", referencedColumnName = "id")}
+    )
+    private Set<Type> type;
     @NotNull
     private Double price;
+
 
 }

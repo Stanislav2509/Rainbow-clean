@@ -1,6 +1,6 @@
 package com.example.Rainbow.clean.service.impl;
 
-import com.example.Rainbow.clean.model.dto.binding.UserRegisterBindingModel;
+import com.example.Rainbow.clean.model.dto.UserRegisterBindingModel;
 import com.example.Rainbow.clean.model.entity.UserEntity;
 import com.example.Rainbow.clean.repo.UserRepository;
 import com.example.Rainbow.clean.service.UserService;
@@ -16,11 +16,6 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
-
-//    @Override
-//    public void login(UserLoginBindingModel userLoginBindingModel) {
-//
-//    }
 
     @Override
     public boolean register(UserRegisterBindingModel userRegisterBindingModel) {
